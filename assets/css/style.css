@@ -291,7 +291,9 @@ p { margin: 0; }
 }
 
 /* Botão flutuante de WhatsApp */
-.wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 60; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #25D366; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: transform .2s; }
-.wa-float:hover { transform: scale(1.06); color: #fff; }
-.wa-float:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
-@media print { .wa-float { display: none; } }
+.wa-float, .instagram-float { position: fixed; right: 16px; bottom: 16px; z-index: 60; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #25D366; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: transform .2s; }
+.wa-float { bottom: 84px; }
+.instagram-float { background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #F77737); }
+.wa-float:hover, .instagram-float:hover { transform: scale(1.06); color: #fff; }
+.wa-float:focus-visible, .instagram-float:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
+@media print { .wa-float, .instagram-float { display: none; } }
