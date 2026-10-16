@@ -6,7 +6,7 @@
   if (toggle && nav) {
     var setOpen = function (open) {
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      toggle.setAttribute('aria-label', window.SiteI18n.t(open ? 'menu.close' : 'menu.open'));
       nav.classList.toggle('is-open', open);
     };
     toggle.addEventListener('click', function () {
@@ -26,13 +26,16 @@
       var el = document.querySelector(btn.getAttribute('data-copy'));
       if (!el) return;
       var valor = btn.getAttribute('data-copy-value') || el.textContent.trim();
-      var original = btn.textContent;
-      var avisar = function (texto) {
-        btn.textContent = texto;
-        setTimeout(function () { btn.textContent = original; }, 2500);
+      var resetTimer;
+      var avisar = function (key) {
+        btn.textContent = window.SiteI18n.t(key);
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () {
+          btn.textContent = window.SiteI18n.t(btn.dataset.i18n);
+        }, 2500);
       };
-      if (!navigator.clipboard) { avisar('Copie manualmente'); return; }
-      navigator.clipboard.writeText(valor).then(function () { avisar('Copiado!'); }, function () { avisar('Copie manualmente'); });
+      if (!navigator.clipboard) { avisar('copy.manual'); return; }
+      navigator.clipboard.writeText(valor).then(function () { avisar('copy.success'); }, function () { avisar('copy.manual'); });
     });
   });
 

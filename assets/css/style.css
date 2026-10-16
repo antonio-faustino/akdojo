@@ -297,3 +297,50 @@ p { margin: 0; }
 .wa-float:hover, .instagram-float:hover { transform: scale(1.06); color: #fff; }
 .wa-float:focus-visible, .instagram-float:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
 @media print { .wa-float, .instagram-float { display: none; } }
+
+/* Seletor: data-language no HTML define qual idioma o botão ativa. */
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(220, 227, 236, .4);
+  border-radius: 999px;
+  flex-shrink: 0;
+  order: 2;
+}
+.language-switch button {
+  min-width: 40px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--branco);
+  font: 700 13px var(--f-texto);
+  cursor: pointer;
+}
+.language-switch button:hover { background: rgba(255, 255, 255, .12); }
+.language-switch button[aria-pressed="true"] { background: var(--amarelo); color: var(--azul); }
+@media (min-width: 861px) {
+  .nav { gap: 16px; font-size: 14px; }
+  .header-inner { gap: 12px; }
+}
+@media (min-width: 861px) and (max-width: 1100px) {
+  .brand-text { display: none; }
+  .nav { gap: 12px; }
+}
+@media (max-width: 860px) {
+  .language-switch { margin-left: auto; order: 0; }
+  .header-inner { gap: 10px; }
+}
+@media (max-width: 380px) {
+  .brand { gap: 6px; }
+  .brand-big { font-size: 18px; }
+  .brand-small { font-size: 9px; }
+  .brand img { width: 36px; height: 34px; }
+  .language-switch button { min-width: 34px; padding: 6px; }
+  .header-inner { padding-left: 12px; padding-right: 12px; gap: 8px; }
+}
+/* Títulos extensos nos dois idiomas continuam dentro da tela em celulares menores. */
+.hero h1 { overflow-wrap: anywhere; }

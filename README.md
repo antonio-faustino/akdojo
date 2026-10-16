@@ -19,3 +19,19 @@ python3 -m http.server 8000 --bind 127.0.0.1
 O conteúdo, os links e os campos entre colchetes foram preservados do original. Horários, endereço, dados institucionais e mapa ainda precisam ser preenchidos. O script de estatísticas Cloudflare do domínio original não foi incluído nesta cópia.
 
 Validação feita em Chromium nas larguras de 1440 e 390 pixels: carregamento dos recursos, navegação interna, menu mobile e cópia da chave PIX. Esta versão ainda não foi publicada na internet.
+
+## Idiomas (PT/EN)
+
+O seletor no cabeçalho usa botões `data-language="pt"` e `data-language="en"`.
+O arquivo `assets/js/i18n.js` mantém o dicionário `translations`, separado em
+`pt` e `en`. Associe um texto do HTML à chave com `data-i18n="chave"` e adicione
+a mesma chave aos dois idiomas. Textos são aplicados via `textContent`;
+para preservar destaques ou links, marque cada trecho separadamente.
+
+Para traduzir atributos, use `data-i18n-alt="chave"`,
+`data-i18n-aria-label="chave"` ou `data-i18n-content="chave"`.
+`main.js` usa `SiteI18n.t(chave)` para mensagens dinâmicas de menu e PIX.
+A preferência fica em `localStorage`, na chave `khuririm-language`.
+O padrão é português; preferências inválidas ou armazenamento bloqueado
+não impedem o uso do seletor. O atributo `lang` da página e o estado
+`aria-pressed` dos botões acompanham o idioma ativo.
