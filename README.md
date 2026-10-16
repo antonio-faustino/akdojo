@@ -35,3 +35,8 @@ A preferência fica em `localStorage`, na chave `khuririm-language`.
 O padrão é português; preferências inválidas ou armazenamento bloqueado
 não impedem o uso do seletor. O atributo `lang` da página e o estado
 `aria-pressed` dos botões acompanham o idioma ativo.
+
+## Testes de carga e navegação
+
+Veja [tests/k6/README.md](tests/k6/README.md) para os testes HTTP e de navegador,
+com estágios de 10 a 50 usuários e instruções de execução.
