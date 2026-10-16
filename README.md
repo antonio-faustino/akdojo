@@ -1,6 +1,6 @@
 # Instituto Khuririm
 
-Versão estática do site https://institutokhuririm.com.br/, preparada como base para melhorias.
+Versão estática do site em andamento...
 
 ## Desenvolvimento
 
