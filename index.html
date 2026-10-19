@@ -294,12 +294,24 @@
             <span class="gallery-instagram-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg></span>
           </a>
         </header>
-        <div class="gallery">
-          <img src="assets/img/galeria-1.webp" srcset="assets/img/galeria-1-600.webp 600w, assets/img/galeria-1.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professor e alunos do instituto posam juntos diante do logotipo da academia" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.7">
-          <img src="assets/img/galeria-2.webp" srcset="assets/img/galeria-2-600.webp 600w, assets/img/galeria-2.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Turma grande de alunos de kimono sentados no tatame" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.8">
-          <img src="assets/img/galeria-3.webp" srcset="assets/img/galeria-3-600.webp 600w, assets/img/galeria-3.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professores e alunos graduados do instituto, de kimono, lado a lado no tatame" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.9">
-          <img src="assets/img/galeria-4.webp" srcset="assets/img/galeria-4-600.webp 600w, assets/img/galeria-4.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professor sorridente com crianças de kimono em uma selfie" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.10">
+        <div class="gallery-carousel" role="region" aria-label="Carrossel da galeria" data-i18n-aria-label="gallery.carousel">
+          <button class="gallery-arrow" type="button" data-gallery-direction="-1" aria-label="Fotos anteriores" data-i18n-aria-label="gallery.previous">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+          </button>
+          <div class="gallery" id="gallery-track">
+            <div class="gallery-slide"><button class="gallery-image-button" type="button" aria-label="Ampliar foto" data-i18n-aria-label="gallery.openImage"><img src="assets/img/galeria-1.webp" srcset="assets/img/galeria-1-600.webp 600w, assets/img/galeria-1.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professor e alunos do instituto posam juntos diante do logotipo da academia" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.7"></button></div>
+            <div class="gallery-slide"><button class="gallery-image-button" type="button" aria-label="Ampliar foto" data-i18n-aria-label="gallery.openImage"><img src="assets/img/galeria-2.webp" srcset="assets/img/galeria-2-600.webp 600w, assets/img/galeria-2.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Turma grande de alunos de kimono sentados no tatame" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.8"></button></div>
+            <div class="gallery-slide"><button class="gallery-image-button" type="button" aria-label="Ampliar foto" data-i18n-aria-label="gallery.openImage"><img src="assets/img/galeria-3.webp" srcset="assets/img/galeria-3-600.webp 600w, assets/img/galeria-3.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professores e alunos graduados do instituto, de kimono, lado a lado no tatame" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.9"></button></div>
+            <div class="gallery-slide"><button class="gallery-image-button" type="button" aria-label="Ampliar foto" data-i18n-aria-label="gallery.openImage"><img src="assets/img/galeria-4.webp" srcset="assets/img/galeria-4-600.webp 600w, assets/img/galeria-4.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 300px" alt="Professor sorridente com crianças de kimono em uma selfie" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.10"></button></div>
+          </div>
+          <button class="gallery-arrow" type="button" data-gallery-direction="1" aria-label="Próximas fotos" data-i18n-aria-label="gallery.next">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
         </div>
+        <dialog class="gallery-lightbox" aria-label="Imagem ampliada" data-i18n-aria-label="gallery.lightbox">
+          <button class="gallery-lightbox-close" type="button" aria-label="Fechar imagem" data-i18n-aria-label="gallery.close">×</button>
+          <img class="gallery-lightbox-image" alt="">
+        </dialog>
       </div>
     </section>
 
@@ -367,12 +379,21 @@
 
         <!-- PATROCINADORES: troque cada placeholder por <a href="SITE"><img src="assets/img/parceiros/NOME.png" alt="NOME"></a> -->
         <div class="sponsors">
-          <p class="kicker kicker-muted" data-i18n="text166">Apoiadores</p>
-          <div class="sponsors-grid">
-            <figure class="sponsor-card"><img src="assets/img/apoiador-1.webp" alt="Cristiano Caporezzo" width="350" height="350" loading="lazy"><figcaption data-i18n="text167">Cristiano Caporezzo · padrinho e apoiador</figcaption></figure>
-            <div class="sponsor-ph" data-i18n="text168">[LOGO PARCEIRO]</div>
-            <div class="sponsor-ph" data-i18n="text169">[LOGO PARCEIRO]</div>
-            <div class="sponsor-ph" data-i18n="text170">[LOGO PARCEIRO]</div>
+          <p class="kicker kicker-muted" data-i18n="text166">APOIADORES
+          </p>
+          <div class="sponsors-carousel" role="region" aria-label="Apoiadores" data-i18n-aria-label="sponsors.carousel">
+            <button class="sponsors-arrow" type="button" data-sponsors-direction="-1" aria-label="Apoiadores anteriores" data-i18n-aria-label="sponsors.previous">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+            </button>
+            <div class="sponsors-grid" id="sponsors-track">
+              <figure class="sponsor-card sponsor-slide"><img src="assets/img/apoiador-1.webp" alt="Cristiano Caporezzo" width="350" height="350" loading="lazy"><figcaption data-i18n="text167">Cristiano Caporezzo · padrinho e apoiador</figcaption></figure>
+              <div class="sponsor-ph sponsor-slide" data-i18n="text168">[LOGO PARCEIRO]</div>
+              <div class="sponsor-ph sponsor-slide" data-i18n="text169">[LOGO PARCEIRO]</div>
+              <div class="sponsor-ph sponsor-slide" data-i18n="text170">[LOGO PARCEIRO]</div>
+            </div>
+            <button class="sponsors-arrow" type="button" data-sponsors-direction="1" aria-label="Próximos apoiadores" data-i18n-aria-label="sponsors.next">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -390,8 +411,11 @@
           </ul>
         </div>
         <div class="map">
-          <!-- Cole aqui o iframe do Google Maps (Compartilhar > Incorporar um mapa) -->
-          <p data-i18n="text176">[MAPA DO LOCAL DE TREINO · Google Maps]</p>
+          <iframe src="https://www.google.com/maps?q=Av.+Brasil%2C+3982%2C+Bairro+Brasil%2C+Uberl%C3%A2ndia+-+MG%2C+38405-305&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="true" tabindex="-1"></iframe>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Brasil%2C+3982%2C+Bairro+Brasil%2C+Uberl%C3%A2ndia+-+MG%2C+38405-305" target="_blank" rel="noopener" aria-label="Abrir endereço no Google Maps" data-i18n-aria-label="contact.mapLink">
+            <span class="map-address" data-i18n="text176">Av. Brasil, 3982 · Bairro Brasil · Uberlândia - MG · 38405-305</span>
+            <span class="map-action" data-i18n="contact.mapAction">Ver rotas no Google Maps</span>
+          </a>
         </div>
       </div>
     </section>
