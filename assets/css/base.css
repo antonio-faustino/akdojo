@@ -1,0 +1,71 @@
+/* Fontes locais, tokens de marca, tipografia, foco e estilos globais. */
+
+@font-face { font-family: 'Outfit'; font-style: normal; font-weight: 600 800; font-display: swap; src: url(../fonts/outfit.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/dm-sans.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --azul: #02274B;
+  --azul-noite: #011A33;
+  --amarelo: #FDC202;
+  --amarelo-hover: #FFD23F;
+  --ouro-escuro: #8A6400;
+  --branco: #FFFFFF;
+  --nevoa: #F4F6FA;
+  --gelo: #DCE3EC;
+  --azul-gelo: #B8C4D4;
+  --ardosia: #556170;
+  --grafite: #1B2430;
+  --link: #1D4F8C;
+
+  --f-titulo: 'Outfit', system-ui, sans-serif;
+  --f-texto: 'DM Sans', system-ui, sans-serif;
+  --raio: 16px;
+  --raio-lg: 20px;
+  --max: 1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+body {
+  margin: 0;
+  font-family: var(--f-texto);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--grafite);
+  background: var(--branco);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--link); }
+
+a:hover { color: var(--azul); }
+
+h1, h2, h3 { font-family: var(--f-titulo); margin: 0; line-height: 1.05; }
+
+h2 { font-weight: 800; font-size: clamp(32px, 4vw, 48px); color: var(--azul); }
+
+h3 { font-weight: 600; font-size: 22px; color: var(--azul); }
+
+p { margin: 0; }
+
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; border-radius: 4px; }
+
+.hl { color: var(--amarelo); }
+
+.muted { color: var(--ardosia); }
+
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--amarelo); color: var(--azul); padding: 10px 16px; border-radius: 8px; font-weight: 700;
+}
+
+.skip-link:focus { top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

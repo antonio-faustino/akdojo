@@ -1,42 +1,55 @@
 # Instituto Khuririm
 
-Versão estática do site em andamento...
+Site institucional estático em HTML, CSS e JavaScript puro, com layout responsivo,
+traduções PT/EN e recursos locais. Não há dependências de aplicação nem etapa de build.
 
 ## Desenvolvimento
 
-Requer Python 3. Não há dependências para instalar nem etapa de build.
+Com Python 3 instalado, execute na raiz do projeto:
 
 ```sh
-cd /workspace/akdojo
-python3 -m http.server 8000 --bind 127.0.0.1
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-- `index.html`: conteúdo e estrutura da página.
-- `assets/css/style.css`: cores, tipografia e layout responsivo.
-- `assets/js/main.js`: menu mobile, copiar PIX e animações.
-- `assets/img/` e `assets/fonts/`: imagens e fontes locais.
+Em ambientes que utilizam `python3`, substitua `python` por `python3`.
+Abra http://127.0.0.1:8000/. O servidor Python é destinado ao desenvolvimento.
 
-O conteúdo, os links e os campos entre colchetes foram preservados do original. Horários, endereço, dados institucionais e mapa ainda precisam ser preenchidos. O script de estatísticas Cloudflare do domínio original não foi incluído nesta cópia.
+## Organização
 
-Validação feita em Chromium nas larguras de 1440 e 390 pixels: carregamento dos recursos, navegação interna, menu mobile e cópia da chave PIX. Esta versão ainda não foi publicada na internet.
+```text
+index.html                  Conteúdo, seções, acessibilidade e SEO
+assets/css/base.css         Fontes, variáveis, tipografia e estilos globais
+assets/css/layout.css       Contêineres, cabeçalho, menu, idiomas e rodapé
+assets/css/components.css   Botões, cards, carrosséis, modal e animações
+assets/css/sections.css     Estilos específicos das seções
+assets/js/i18n.js           Dicionários PT/EN e controle do idioma
+assets/js/main.js           Inicialização dos componentes e ano do rodapé
+assets/js/components/       Menu, PIX, carrosséis, modal e animações
+assets/img/                 Marca, bandeiras, galeria e fotografias
+assets/fonts/               Outfit e DM Sans em WOFF2
+docs/maintenance.md        Guia de manutenção
+```
+
+Os CSS são carregados na ordem `base`, `layout`, `components`, `sections`.
+Os scripts usam `defer`: primeiro `i18n.js`, depois os componentes e por último
+`main.js`. O site pode ser servido diretamente por uma hospedagem estática.
 
 ## Idiomas (PT/EN)
 
-O seletor no cabeçalho usa botões `data-language="pt"` e `data-language="en"`.
-O arquivo `assets/js/i18n.js` mantém o dicionário `translations`, separado em
-`pt` e `en`. Associe um texto do HTML à chave com `data-i18n="chave"` e adicione
-a mesma chave aos dois idiomas. Textos são aplicados via `textContent`;
-para preservar destaques ou links, marque cada trecho separadamente.
+O seletor utiliza `data-language="pt"` e `data-language="en"`. O arquivo
+`assets/js/i18n.js` mantém o dicionário `translations` com as mesmas chaves nos
+dois idiomas. Use `data-i18n="chave"` para textos e `data-i18n-alt`,
+`data-i18n-aria-label` ou `data-i18n-content` para atributos.
 
-Para traduzir atributos, use `data-i18n-alt="chave"`,
-`data-i18n-aria-label="chave"` ou `data-i18n-content="chave"`.
-`main.js` usa `SiteI18n.t(chave)` para mensagens dinâmicas de menu e PIX.
-A preferência fica em `localStorage`, na chave `khuririm-language`.
-O padrão é português; preferências inválidas ou armazenamento bloqueado
-não impedem o uso do seletor. O atributo `lang` da página e o estado
-`aria-pressed` dos botões acompanham o idioma ativo.
+As traduções são aplicadas com `textContent`; marque separadamente os trechos
+que contenham links ou destaques. Menu e PIX utilizam `SiteI18n.t(chave)`.
+A preferência fica em `localStorage`, na chave `khuririm-language`. O padrão
+é português; armazenamento bloqueado não impede a troca de idioma.
 
-## Testes de carga e navegação
+## Conteúdo e manutenção
 
-Veja [tests/k6/README.md](tests/k6/README.md) para os testes HTTP e de navegador,
-com estágios de 10 a 50 usuários e instruções de execução.
+Consulte [docs/maintenance.md](docs/maintenance.md) para editar conteúdo,
+imagens, estilos e interações. Os campos entre colchetes, como CNPJ e links
+de relatórios, ainda precisam ser preenchidos. O endereço e o mapa já estão
+presentes na página. O script de estatísticas Cloudflare do domínio original
+não está incluído nesta cópia.
