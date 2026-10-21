@@ -37,7 +37,7 @@
   </script>
   <link rel="preload" href="assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" as="image" href="assets/img/photos/primeira-foto.webp" imagesrcset="assets/img/photos/primeira-foto-600.webp 600w, assets/img/photos/primeira-foto.webp 1200w" imagesizes="(max-width: 860px) 100vw, 560px" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/photos/primeira-foto.webp" imagesrcset="assets/img/photos/primeira-foto.webp 1200w" imagesizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -49,10 +49,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#inicio" class="brand">
-        <img src="assets/img/brand/logo-simbolo.webp" alt="" width="48" height="42">
+        <img src="assets/img/brand/logo-simbolo.webp" alt="" width="80" height="72">
         <span class="brand-text"><span class="brand-small">INSTITUTO</span> <span class="brand-big">KHURIRIM</span></span>
       </a>
-      <div class="language-switch" role="group" aria-label="Idioma" data-i18n-aria-label="language.label"><button type="button" data-language="pt" lang="pt" aria-label="Português" aria-pressed="true"><img class="language-flag" src="assets/img/flags/br.svg" alt="" width="24" height="24" aria-hidden="true"><span>PT</span></button><button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false"><img class="language-flag" src="assets/img/flags/us.svg" alt="" width="24" height="24" aria-hidden="true"><span>EN</span></button></div>
+      <div class="language-switch" role="group" aria-label="Idioma" data-i18n-aria-label="language.label"><button type="button" data-language="pt" lang="pt" aria-label="Português" aria-pressed="true"><span>PT</span></button><button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false"><span>EN</span></button></div>
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
         <span></span><span></span><span></span>
       </button>
@@ -62,7 +62,7 @@
         <a href="#programas" data-i18n="text007">Nossos programas</a>
         <a href="#transparencia" data-i18n="text008">Transparência</a>
         <a href="#apoie" data-i18n="text009">Apoie</a>
-        <a href="#contato" class="btn btn-yellow btn-sm" data-i18n="text010">Contato</a>
+        <a href="#contato" data-i18n="text010">Contato</a>
       </nav>
     </div>
   </header>
@@ -80,22 +80,30 @@
             <p data-i18n="text015">O esporte é o começo. A transformação vai muito além do tatame.</p>
           </div>
           <div class="actions">
-            <a href="#aulas" class="btn btn-yellow" data-i18n="text016">Quero participar das aulas</a>
-            <a href="#apoie" class="btn btn-outline" data-i18n="text017">Faça parte deste novo tempo ›</a>
+            <a href="#aulas" class="btn btn-yellow"><span data-i18n="text016">Quero participar das aulas</span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
+            <a href="#apoie" class="btn btn-outline"><span data-i18n="hero.support">Apoiar o Instituto</span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
+          </div>
+          <div class="hero-pillars" role="group" aria-label="Pilares" data-i18n-aria-label="accessibility.3">
+            <ul class="pillars-list">
+              <li><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 3-5 4 2 5 3-2v11h8V10l3 2 2-5-5-4-4 3-4-3Z"/><path d="m9 4 3 9 3-9M8 14h8m-5 0-2 7m4-7 2 7"/></svg><span data-i18n="text018">Esporte</span></li>
+              <li><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m2 8 10-5 10 5-10 5L2 8Zm4 3v7c4 3 8 3 12 0v-7M22 8v9"/></svg><span data-i18n="text019">Educação</span></li>
+              <li><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="6" r="3"/><path d="M6 21v-4a6 6 0 0 1 12 0v4M5 5a3 3 0 0 0 0 6m14-6a3 3 0 0 1 0 6M2 20v-4a4 4 0 0 1 3-4m17 8v-4a4 4 0 0 0-3-4"/></svg><span data-i18n="text020">Cultura</span></li>
+              <li><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 4.5a5.2 5.2 0 0 0-7.4 0L12 5.6l-1.1-1.1a5.2 5.2 0 0 0-7.4 7.4L12 21l8.5-9.1a5.2 5.2 0 0 0 0-7.4Z"/></svg><span data-i18n="text021">Socioemocional</span></li>
+              <li><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 2 2.7 6.1 6.6.7-5 4.4 1.5 6.5-5.8-3.4-5.8 3.4 1.5-6.5-5-4.4 6.6-.7L12 2Z"/></svg><span data-i18n="text022">Oportunidade</span></li>
+            </ul>
           </div>
         </div>
+        <!-- Integração futura: trocar somente os src/srcset após validar os novos arquivos. -->
         <div class="hero-media">
-          <span class="hero-corner" aria-hidden="true"></span>
-          <img src="assets/img/photos/primeira-foto.webp" srcset="assets/img/photos/primeira-foto-600.webp 600w, assets/img/photos/primeira-foto.webp 1200w" sizes="(max-width: 860px) 100vw, 560px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="560" height="700" fetchpriority="high" data-i18n-alt="accessibility.2">
+          <span class="hero-frame" aria-hidden="true"></span>
+          <div class="hero-photo hero-photo-main">
+            <img src="assets/img/photos/primeira-foto.webp" srcset="assets/img/photos/primeira-foto.webp 1200w" sizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="1200" height="1099" fetchpriority="high" data-i18n-alt="accessibility.2">
+          </div>
+          <div class="hero-photo hero-photo-secondary">
+            <img src="assets/img/photos/sobre.webp" srcset="assets/img/photos/sobre.webp 1200w" sizes="(min-width: 1600px) 320px, (max-width: 600px) 45vw, (max-width: 1000px) 34vw, 300px" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="1200" height="1198" data-i18n-alt="accessibility.4">
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- PILARES -->
-    <section class="pillars" aria-label="Pilares" data-i18n-aria-label="accessibility.3">
-      <ul class="container pillars-list">
-        <li data-i18n="text018">Esporte</li><li data-i18n="text019">Educação</li><li data-i18n="text020">Cultura</li><li data-i18n="text021">Socioemocional</li><li data-i18n="text022">Oportunidade</li>
-      </ul>
     </section>
 
     <!-- SOBRE -->

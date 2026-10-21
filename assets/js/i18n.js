@@ -3,6 +3,7 @@
 (function () {
   const translations = {
   "pt": {
+    "hero.support": "Apoiar o Instituto",
     "text001": "Instituto Khuririm · Transformando vidas. Construindo futuros.",
     "text002": "Pular para o conteúdo",
     "text005": "Início",
@@ -206,6 +207,7 @@
     "meta.description": "OSC de Uberlândia-MG que usa o esporte, a educação e o desenvolvimento socioemocional para transformar a vida de crianças e adolescentes."
   },
   "en": {
+    "hero.support": "Support the Institute",
     "text001": "Instituto Khuririm · Transforming lives. Building futures.",
     "text002": "Skip to content",
     "text005": "Home",
