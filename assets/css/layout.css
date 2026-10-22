@@ -162,6 +162,7 @@ html { --header-height: 112px; --header-compact-height: 80px; scroll-padding-top
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    max-height: calc(100vh - var(--header-current-height));
     max-height: calc(100dvh - var(--header-current-height));
     overflow-y: auto;
     padding: 12px 24px 24px;

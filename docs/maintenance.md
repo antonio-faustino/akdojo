@@ -82,6 +82,17 @@ revise os links correspondentes em todas as seções e nos botões flutuantes.
 
 ## Verificação manual
 
+Na revisão de 22/10/2026, o Edge headless verificou as larguras 320, 360, 390,
+600, 768, 820, 1000, 1024, 1280, 1366, 1440 e 1920 px em PT/EN, sem rolagem
+horizontal, sobreposição no cabeçalho ou erros JavaScript. Menu móvel e modal
+de fotos também foram verificados. Safari e Firefox não foram executados;
+confira esses navegadores antes de afirmar compatibilidade validada.
+
+O menu possui fallback de altura com `vh`, e o listener de mudança de largura
+aceita a API antiga de MediaQueryList. Em navegadores sem `dialog.showModal`,
+a foto é aberta diretamente. A classe `sponsors-single` deve ser removida se
+novos apoiadores forem adicionados ao carrossel.
+
 Após mudanças, confira o console e a rede do navegador, o carregamento das
 imagens e fontes e as telas de 1440 e 390 pixels. Verifique os dois idiomas,
 a preferência após recarregar, menu mobile, Escape, PIX, carrosséis, modal,
