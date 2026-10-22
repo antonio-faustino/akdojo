@@ -104,3 +104,16 @@ Após mudanças, confira o console e a rede do navegador, o carregamento das
 imagens e fontes e as telas de 1440 e 390 pixels. Verifique os três idiomas,
 a preferência após recarregar, menu mobile, Escape, PIX, carrosséis, modal,
 âncoras, links sociais, navegação por teclado e redução de movimento.
+
+## Revisão de navegação de 22/10/2026
+
+O seletor de idiomas acompanha o menu em telas de até 1000 px e retorna ao
+cabeçalho no desktop. O botão de voltar ao topo aparece após 400 px de rolagem.
+Os carrosséis respeitam a preferência de movimento reduzido do sistema.
+
+Nesta revisão, o Edge headless abriu o HTML local e verificou PT/EN/ES em
+320, 390, 768, 1000, 1001, 1366 e 1920 px. Passaram as verificações de ausência
+de rolagem horizontal, erros JavaScript, âncoras inválidas e traduções de texto
+ausentes, além do carregamento das imagens sem lazy loading, posição dos idiomas,
+menu móvel, fechamento com Escape e visibilidade do botão de voltar ao topo.
+A revisão não verificou hospedagem, Clipboard API em HTTPS ou outros navegadores.

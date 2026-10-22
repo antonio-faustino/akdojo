@@ -3,6 +3,7 @@
 (function () {
   const translations = {
   "pt": {
+    "navigation.backToTop": "Voltar ao topo",
     "gallery.caption3": "Proximidade que faz parte de cada treino.",
     "gallery.caption2": "Um registro de professores e alunos graduados.",
     "gallery.caption1": "Uma turma reunida pelo esporte.",
@@ -214,6 +215,7 @@
     "meta.description": "OSC de Uberlândia-MG que usa o esporte, a educação e o desenvolvimento socioemocional para transformar a vida de crianças e adolescentes."
   },
   "en": {
+    "navigation.backToTop": "Back to top",
     "gallery.caption3": "Personal connection in every class.",
     "gallery.caption2": "Instructors and ranked students together.",
     "gallery.caption1": "A class brought together by sport.",
@@ -425,6 +427,7 @@
     "meta.description": "A nonprofit in Uberlândia, Brazil, using sport, education and social-emotional development to transform the lives of children and teenagers."
   },
   "es": {
+    "navigation.backToTop": "Volver arriba",
     "gallery.caption3": "Cercanía que forma parte de cada entrenamiento.",
     "gallery.caption2": "Profesores y alumnos graduados juntos.",
     "gallery.caption1": "Un grupo unido por el deporte.",

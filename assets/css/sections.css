@@ -147,6 +147,14 @@
 }
 @media (max-width: 600px) {
   .hero { padding-top: 80px; }
+  .hero::before {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1672 / 941;
+    background-image: linear-gradient(to bottom, #021a33 0%, rgba(2, 26, 51, .9) 18%, rgba(2, 26, 51, .35) 55%, transparent 100%);
+    background-size: 100% 100%;
+    mask-image: none;
+  }
   .hero .hero-inner { gap: 36px; padding: 36px 22px 48px; }
   .hero .hero-text { gap: 22px; }
   .hero .kicker { gap: 12px; font-size: 9px; letter-spacing: .23em; }

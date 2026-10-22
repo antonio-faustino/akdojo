@@ -1,5 +1,28 @@
 /* Botões, cards, carrosséis, modal, PIX, redes sociais e animações. */
 
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(2,39,75,.15);
+  border-radius: 50%;
+  background: var(--amarelo);
+  color: var(--azul);
+  box-shadow: 0 4px 18px rgba(1,12,24,.25);
+  text-decoration: none;
+}
+.back-to-top[hidden] { display: none; }
+.back-to-top:hover { background: var(--amarelo-hover); color: var(--azul); }
+@media (max-width: 600px) {
+  .back-to-top { right: 16px; bottom: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: 48px; height: 48px; }
+}
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 52px; padding: 0 28px; border-radius: 999px;
