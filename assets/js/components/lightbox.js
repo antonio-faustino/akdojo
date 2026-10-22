@@ -10,6 +10,10 @@
         button.addEventListener('click', function () {
           var image = button.querySelector('img');
           if (!image || !lightboxImage) return;
+          if (typeof lightbox.showModal !== 'function') {
+            window.location.assign(image.currentSrc || image.src);
+            return;
+          }
           lightboxImage.src = image.currentSrc || image.src;
           lightboxImage.alt = image.alt;
           lightbox.showModal();

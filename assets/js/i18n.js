@@ -430,7 +430,7 @@
   const t = key => translations[language][key] ?? translations.pt[key] ?? key;
 
   function setLanguage(nextLanguage) {
-    language = Object.hasOwn(translations, nextLanguage) ? nextLanguage : 'pt';
+    language = Object.prototype.hasOwnProperty.call(translations, nextLanguage) ? nextLanguage : 'pt';
     document.documentElement.lang = language === 'en' ? 'en' : 'pt-BR';
     // Use textContent: a tradução não injeta HTML e preserva a estrutura da página.
     document.querySelectorAll('[data-i18n]').forEach(element => {

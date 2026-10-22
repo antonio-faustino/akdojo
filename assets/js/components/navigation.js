@@ -24,9 +24,12 @@
       });
       var brand = header && header.querySelector('.brand');
       if (brand) brand.addEventListener('click', function () { setOpen(false); });
-      window.matchMedia('(min-width: 1001px)').addEventListener('change', function (event) {
+      var desktopQuery = window.matchMedia('(min-width: 1001px)');
+      var handleDesktopChange = function (event) {
         if (event.matches) setOpen(false);
-      });
+      };
+      if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
+      else desktopQuery.addListener(handleDesktopChange);
     }
 
     if (!header || !nav) return;
