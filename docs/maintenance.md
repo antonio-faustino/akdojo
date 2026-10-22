@@ -29,7 +29,7 @@ O HTML carrega os arquivos nesta ordem:
    apoio e contato.
 
 As media queries ficam na responsabilidade correspondente. A ordem das regras
-dentro de cada arquivo importa para a cascata. Verifique ambos os idiomas e
+dentro de cada arquivo importa para a cascata. Verifique os três idiomas e
 telas largas e estreitas ao alterar estilos compartilhados. Os caminhos
 `url(../fonts/...)` são relativos ao CSS; preserve esse nível de pasta.
 
@@ -54,8 +54,8 @@ indisponível, o botão mantém a orientação de cópia manual.
 
 ## Traduções
 
-Os dicionários PT/EN e o mecanismo permanecem em `assets/js/i18n.js`.
-Adicione a mesma chave nos dois idiomas e associe-a ao HTML por `data-i18n`.
+Os dicionários PT/EN/ES e o mecanismo permanecem em `assets/js/i18n.js`.
+Adicione a mesma chave nos três idiomas e associe-a ao HTML por `data-i18n`.
 Para atributos, use `data-i18n-alt`, `data-i18n-aria-label` e `data-i18n-content`.
 Preserve as chaves e o uso de `textContent`, sem injetar HTML nas traduções.
 Preserve `window.SiteI18n`, o evento `languagechange`, a chave de armazenamento
@@ -82,6 +82,13 @@ revise os links correspondentes em todas as seções e nos botões flutuantes.
 
 ## Verificação manual
 
+Na organização final de 22/10/2026, foram verificadas a sintaxe dos sete scripts,
+209 chaves em cada um dos dicionários PT/EN/ES, recursos locais e âncoras.
+No Edge headless, as larguras 320, 390, 768, 1024, 1366 e 1920 px passaram nos
+três idiomas, sem rolagem horizontal nem erros JavaScript, com a foto principal
+carregada. Menu móvel, Escape e ampliação de fotos também passaram. Essas
+verificações não substituem a confirmação dos dados pelo responsável.
+
 Na revisão de 22/10/2026, o Edge headless verificou as larguras 320, 360, 390,
 600, 768, 820, 1000, 1024, 1280, 1366, 1440 e 1920 px em PT/EN, sem rolagem
 horizontal, sobreposição no cabeçalho ou erros JavaScript. Menu móvel e modal
@@ -94,6 +101,6 @@ a foto é aberta diretamente. A classe `sponsors-single` deve ser removida se
 novos apoiadores forem adicionados ao carrossel.
 
 Após mudanças, confira o console e a rede do navegador, o carregamento das
-imagens e fontes e as telas de 1440 e 390 pixels. Verifique os dois idiomas,
+imagens e fontes e as telas de 1440 e 390 pixels. Verifique os três idiomas,
 a preferência após recarregar, menu mobile, Escape, PIX, carrosséis, modal,
 âncoras, links sociais, navegação por teclado e redução de movimento.
