@@ -37,7 +37,7 @@
   </script>
   <link rel="preload" href="assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" as="image" href="assets/img/photos/primeira-foto.webp" imagesrcset="assets/img/photos/primeira-foto.webp 1200w" imagesizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/photos/primeira-foto.jpg" imagesrcset="assets/img/photos/primeira-foto.jpg 831w" imagesizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -62,6 +62,10 @@
         <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false">
           <img class="language-flag" src="assets/img/flags/us.svg" alt="" width="24" height="17" aria-hidden="true">
           <span>EN</span>
+        </button>
+        <button type="button" data-language="es" lang="es" aria-label="Español" aria-pressed="false">
+          <img class="language-flag" src="assets/img/flags/es.svg" alt="" width="24" height="17" aria-hidden="true">
+          <span>ES</span>
         </button>
       </div>
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
@@ -106,7 +110,7 @@
         <div class="hero-media">
           <span class="hero-frame" aria-hidden="true"></span>
           <div class="hero-photo hero-photo-main">
-            <img src="assets/img/photos/primeira-foto.webp" srcset="assets/img/photos/primeira-foto.webp 1200w" sizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="1200" height="1099" fetchpriority="high" data-i18n-alt="accessibility.2">
+            <img src="assets/img/photos/primeira-foto.jpg" srcset="assets/img/photos/primeira-foto.jpg 831w" sizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="831" height="849" fetchpriority="high" data-i18n-alt="accessibility.2">
           </div>
           <div class="hero-photo hero-photo-secondary">
             <img src="assets/img/photos/sobre-600.webp" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="600" height="599" data-i18n-alt="accessibility.4">
@@ -360,7 +364,7 @@
           </article>
         </div>
 
-        <!-- PATROCINADORES: substitua cada placeholder pelo link e pela imagem do parceiro. -->
+        <!-- APOIADORES: adicione somente marcas autorizadas; remova sponsors-single ao incluir mais de um. -->
         <div class="sponsors">
           <p class="kicker kicker-muted" data-i18n="text166">APOIADORES</p>
           <div class="sponsors-carousel sponsors-single" role="region" aria-label="Apoiadores" data-i18n-aria-label="sponsors.carousel">
@@ -369,7 +373,7 @@
             </button>
             <div class="sponsors-grid" id="sponsors-track">
               <figure class="sponsor-card sponsor-slide"><img src="assets/img/photos/apoiador-1.webp" alt="Cristiano Caporezzo" width="350" height="350" loading="lazy"><figcaption data-i18n="text167">Cristiano Caporezzo · padrinho e apoiador</figcaption></figure>
-              </div>
+            </div>
             <button class="sponsors-arrow" type="button" data-sponsors-direction="1" aria-label="Próximos apoiadores" data-i18n-aria-label="sponsors.next">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
             </button>

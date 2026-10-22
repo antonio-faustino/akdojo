@@ -254,9 +254,6 @@
 }
 .programs .mv-card:first-child h3 { font-size: 32px; }
 .programs .mv-card:first-child p { max-width: 480px; color: var(--branco); }
-.programs .mv-card:nth-child(3) { background: linear-gradient(135deg, #fff9df, #f9edbe); border-color: #e4cc76; color: var(--azul); }
-.programs .mv-card:nth-child(3) h3 { color: var(--azul); }
-.programs .mv-card:nth-child(3)::before { border-color: rgba(2,39,75,.15); box-shadow: 0 0 0 24px rgba(2,39,75,.025), 0 0 0 48px rgba(2,39,75,.02); }
 .program-number {
   display: inline-flex;
   align-items: center;
@@ -274,7 +271,6 @@
   letter-spacing: .08em;
   color: var(--amarelo);
 }
-.programs .mv-card:nth-child(3) .program-number { color: var(--azul); border-color: rgba(2,39,75,.3); background: rgba(255,255,255,.5); }
 #aulas .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 #aulas .card { border-top: 3px solid var(--amarelo); }
 #missao { padding-top: 56px; padding-bottom: 56px; }
