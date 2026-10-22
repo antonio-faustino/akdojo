@@ -20,15 +20,33 @@
 
 /* Hero e pilares: regras locais para preservar as demais seções. */
 .hero {
+  padding-top: 112px;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  /* Preenche o desktop; no mobile preserva a composição sem ampliá-la pela altura. */
   background-color: #021a33;
   background-image: url('../img/backgrounds/hero-background.png.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
+}
+/* Preserva o fundo original. A camada inferior reduz seu K em 15% e escurece-o
+   suavemente; as bordas se fundem à textura sem redesenhar o símbolo. */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 85%;
+  height: 85%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(1, 18, 35, .2), rgba(1, 18, 35, .2)), url('../img/backgrounds/hero-background.png.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  mask-image: linear-gradient(to right, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 16%);
+  mask-composite: intersect;
 }
 .hero .hero-inner {
   position: relative;
@@ -57,20 +75,52 @@
 .hero .actions .btn-yellow:hover { background: var(--amarelo-hover); }
 .hero .actions .btn-outline { border: 1px solid #eff4fa; background: rgba(1, 26, 51, .15); }
 .hero .actions .btn-outline:hover { color: var(--azul); border-color: var(--amarelo); background: var(--amarelo); }
-.hero .hero-pillars { max-width: 630px; margin-top: 12px; }
+.hero .hero-pillars { width: 100%; max-width: 610px; margin-top: 12px; }
 .hero .pillars-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; }
 .hero .pillars-list li { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 11px; min-width: 0; padding: 4px 9px 0; text-align: center; color: var(--branco); font-size: 14px; line-height: 1.35; }
 .hero .pillars-list li + li { border-left: 1px solid rgba(184, 196, 212, .3); }
 .hero .pillars-list svg { flex-shrink: 0; width: 32px; height: 32px; color: var(--amarelo); }
-.hero .hero-media { position: relative; min-width: 0; width: 100%; aspect-ratio: .87; }
-.hero .hero-frame { position: absolute; top: -9px; right: 5%; bottom: -9px; width: 78%; border: 2px solid var(--amarelo); border-radius: 30px; transform: rotate(5deg); }
-.hero .hero-photo { position: absolute; overflow: hidden; border-radius: 24px; box-shadow: 0 18px 38px rgba(0, 0, 0, .24); }
+.hero .hero-media { position: relative; isolation: isolate; min-width: 0; width: calc(100% - 24px); aspect-ratio: 1.02; margin-bottom: 36px; }
+.hero .hero-frame {
+  position: absolute;
+  top: -16px;
+  right: -2%;
+  bottom: 12px;
+  z-index: 0;
+  width: 84%;
+  border: 1px solid rgba(253, 194, 2, .85);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(21, 51, 78, .88), rgba(2, 20, 39, .96));
+  box-shadow: 0 3px 8px rgba(0, 8, 20, .18), 0 22px 44px -16px rgba(0, 8, 20, .55), inset 0 1px 0 rgba(255, 233, 160, .1);
+  transform: rotate(4deg);
+}
+/* Um único recorte arredondado evita desencontro entre as bordas da foto e do cartão.
+   Sombras de contato e ambiente diferenciam a altura de cada camada. */
+.hero .hero-photo {
+  position: absolute;
+  overflow: hidden;
+  border: 0;
+  border-radius: 24px;
+  background: #011a33;
+  box-shadow: 0 3px 8px rgba(0, 8, 20, .24), 0 18px 36px -8px rgba(0, 8, 20, .5), 0 38px 64px -20px rgba(0, 8, 20, .4);
+}
+.hero .hero-photo::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(232, 240, 248, .2); border-radius: inherit; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12); pointer-events: none; }
 .hero .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.hero .hero-photo-main { inset: 0; border: 1px solid rgba(184, 196, 212, .5); transform: rotate(4deg); }
-.hero .hero-photo-main img { object-position: 49% center; }
-.hero .hero-photo-secondary { left: -10%; bottom: -1%; width: 49%; height: 52%; border: 2px solid #f4f2e8; border-radius: 22px; transform: rotate(4deg); }
+.hero .hero-photo-main { inset: 0; z-index: 1; transform: rotate(2deg); }
+.hero .hero-photo-main img { object-position: 50% 42%; }
+.hero .hero-photo-secondary {
+  left: -7%;
+  bottom: -7%;
+  z-index: 2;
+  width: 38%;
+  height: 43%;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 8, 20, .28), 0 18px 34px -6px rgba(0, 8, 20, .55), 0 36px 60px -14px rgba(0, 8, 20, .5);
+  transform: rotate(-5deg);
+}
+.hero .hero-photo-secondary::after { border-color: rgba(247, 243, 228, .58); }
 /* Recorte local do original de 1200px: símbolo e rostos permanecem no cartão. */
-.hero .hero-photo-secondary img { position: absolute; left: -23%; top: -22%; width: 146%; max-width: none; height: 146%; object-position: 50% 0; }
+.hero .hero-photo-secondary img { object-position: 50% 62%; }
 
 /* Mantém duas colunas proporcionais em monitores amplos. */
 @media (min-width: 1600px) {
@@ -91,16 +141,18 @@
   .hero .pillars-list li { padding-right: 6px; padding-left: 6px; font-size: 12px; }
 }
 @media (max-width: 1000px) {
-  .hero { background-size: contain; }
+  .hero { padding-top: 92px; background-size: contain; }
+  .hero::before { background-size: 100% 100%, contain; }
   .hero .hero-inner { grid-template-columns: 1fr; gap: 48px; min-height: 0; padding: 52px 32px 64px; }
   .hero .hero-text { max-width: 720px; padding-top: 0; }
   .hero h1 { max-width: 720px; font-size: clamp(56px, 8vw, 76px); }
   .hero .hero-lead { max-width: 660px; margin-top: 0; }
   .hero .actions { max-width: 610px; }
-  .hero .hero-media { justify-self: center; width: 76%; max-width: 600px; margin-left: 6%; aspect-ratio: .95; }
-  .hero .hero-photo-secondary { left: -10%; }
+  .hero .hero-media { justify-self: center; width: 76%; max-width: 600px; margin-left: 6%; aspect-ratio: 1.02; }
+  .hero .hero-photo-secondary { left: -7%; }
 }
 @media (max-width: 600px) {
+  .hero { padding-top: 80px; }
   .hero .hero-inner { gap: 36px; padding: 36px 22px 48px; }
   .hero .hero-text { gap: 22px; }
   .hero .kicker { gap: 12px; font-size: 9px; letter-spacing: .23em; }
@@ -115,10 +167,10 @@
   .hero .pillars-list li { flex: 0 0 33.333%; padding: 0 7px; gap: 9px; font-size: 12px; }
   .hero .pillars-list li:nth-child(4) { border-left: 0; }
   .hero .pillars-list svg { width: 30px; height: 30px; }
-  .hero .hero-media { width: calc(100% - 20px); max-width: 400px; margin-left: 20px; aspect-ratio: .92; }
-  .hero .hero-frame { top: -6px; right: 5%; bottom: -6px; border-radius: 22px; }
-  .hero .hero-photo { border-radius: 18px; }
-  .hero .hero-photo-secondary { left: -9%; width: 48%; height: 51%; border-radius: 14px; }
+  .hero .hero-media { width: calc(100% - 28px); max-width: 400px; margin-left: 12px; margin-bottom: 24px; aspect-ratio: 1.02; }
+  .hero .hero-frame { top: -12px; right: 3%; bottom: -10px; border-radius: 21px; }
+  .hero .hero-photo { border-radius: 18px; box-shadow: 0 3px 6px rgba(0, 8, 20, .24), 0 16px 28px -8px rgba(0, 8, 20, .5), 0 28px 44px -16px rgba(0, 8, 20, .4); }
+  .hero .hero-photo-secondary { left: -7%; width: 40%; height: 45%; border-radius: 16px; box-shadow: 0 4px 8px rgba(0, 8, 20, .28), 0 16px 28px -6px rgba(0, 8, 20, .55), 0 28px 44px -12px rgba(0, 8, 20, .5); }
 }
 .split { display: flex; flex-wrap: wrap; align-items: center; gap: 56px; }
 
