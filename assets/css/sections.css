@@ -76,7 +76,7 @@
 .hero .actions .btn-outline { border: 1px solid #eff4fa; background: rgba(1, 26, 51, .15); }
 .hero .actions .btn-outline:hover { color: var(--azul); border-color: var(--amarelo); background: var(--amarelo); }
 .hero .hero-pillars { width: 100%; max-width: 610px; margin-top: 12px; }
-.hero .pillars-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; }
+.hero .pillars-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; }
 .hero .pillars-list li { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 11px; min-width: 0; padding: 4px 9px 0; text-align: center; color: var(--branco); font-size: 14px; line-height: 1.35; }
 .hero .pillars-list li + li { border-left: 1px solid rgba(184, 196, 212, .3); }
 .hero .pillars-list svg { flex-shrink: 0; width: 32px; height: 32px; color: var(--amarelo); }
@@ -163,9 +163,9 @@
   .hero .actions { grid-template-columns: 1fr; gap: 12px; margin-top: 4px; }
   .hero .actions .btn { min-height: 60px; padding: 16px 22px; font-size: 16px; }
   .hero .hero-pillars { margin-top: 8px; }
-  .hero .pillars-list { display: flex; flex-wrap: wrap; justify-content: center; row-gap: 22px; }
-  .hero .pillars-list li { flex: 0 0 33.333%; padding: 0 7px; gap: 9px; font-size: 12px; }
-  .hero .pillars-list li:nth-child(4) { border-left: 0; }
+  .hero .pillars-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .hero .pillars-list li { padding: 0 7px; gap: 9px; font-size: 12px; }
+  .hero .pillars-list li:nth-child(3) { border-left: 0; }
   .hero .pillars-list svg { width: 30px; height: 30px; }
   .hero .hero-media { width: calc(100% - 28px); max-width: 400px; margin-left: 12px; margin-bottom: 24px; aspect-ratio: 1.02; }
   .hero .hero-frame { top: -12px; right: 3%; bottom: -10px; border-radius: 21px; }
