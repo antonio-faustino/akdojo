@@ -37,11 +37,12 @@
   </script>
   <link rel="preload" href="assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" as="image" href="assets/img/photos/primeira-foto.jpg" imagesrcset="assets/img/photos/primeira-foto.jpg 831w" imagesizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/photos/alunas-jiu-jitsu.jpg" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
 </head>
 <body>
   <a class="skip-link" href="#conteudo" data-i18n="text002">Pular para o conteúdo</a>
@@ -93,10 +94,6 @@
             <p data-i18n="text014">Esporte, educação e acolhimento para crianças e adolescentes em Uberlândia, MG.</p>
             <p data-i18n="text015">Conheça o Instituto, participe das aulas gratuitas ou ajude essa história a continuar.</p>
           </div>
-          <div class="actions">
-            <a href="#aulas" class="btn btn-yellow"><span data-i18n="text016">Quero participar das aulas</span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
-            <a href="#apoie" class="btn btn-outline"><span data-i18n="hero.support">Apoiar o Instituto</span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
-          </div>
           <div class="hero-pillars" role="group" aria-label="Pilares" data-i18n-aria-label="accessibility.3">
             <ul class="pillars-list">
               <li><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 3-2 3-5 3-3 13 5 2 3-10-1 15h16l-1-15 3 10 5-2-3-13-5-3-2-3Z"/><path d="M11 3h10M10 6l6 9M22 6 12 21M12 6l5 7M20 6 10 21M9 21h14v3H9zM4 20l3 1m18 0 3-1M13 24l-2 6h3l2-6m0 0 2 6h3l-3-6"/></svg><span data-i18n="text018">Esporte</span></li>
@@ -106,14 +103,21 @@
             </ul>
           </div>
         </div>
-        <!-- Integração futura: trocar somente os src/srcset após validar os novos arquivos. -->
-        <div class="hero-media">
+        <div class="hero-media hero-stack" data-hero-stack>
           <span class="hero-frame" aria-hidden="true"></span>
-          <div class="hero-photo hero-photo-main">
-            <img src="assets/img/photos/primeira-foto.jpg" srcset="assets/img/photos/primeira-foto.jpg 831w" sizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="831" height="849" fetchpriority="high" data-i18n-alt="accessibility.2">
-          </div>
-          <div class="hero-photo hero-photo-secondary">
+          <button type="button" class="hero-photo hero-photo-main is-left" data-hero-photo aria-pressed="false">
+            <img src="assets/img/photos/primeira-foto.jpg" srcset="assets/img/photos/primeira-foto.jpg 831w" sizes="(min-width: 1600px) 650px, (max-width: 600px) calc(100vw - 64px), (max-width: 1000px) 70vw, (max-width: 1360px) calc(48vw - 46px), 608px" alt="Professor do Instituto Khuririm tira uma selfie com crianças de kimono no tatame" width="831" height="849" data-i18n-alt="accessibility.2">
+          </button>
+          <button type="button" class="hero-photo hero-photo-secondary is-right" data-hero-photo aria-pressed="false">
             <img src="assets/img/photos/sobre-600.webp" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="600" height="599" data-i18n-alt="accessibility.4">
+          </button>
+          <button type="button" class="hero-photo hero-photo-third is-front" data-hero-photo data-hero-primary aria-pressed="true">
+            <img src="assets/img/photos/alunas-jiu-jitsu.jpg" alt="Duas alunas de kimono sorrindo no tatame" width="1290" height="1290" fetchpriority="high" data-i18n-alt="hero.students">
+          </button>
+          <div class="hero-photo-controls" data-hero-controls>
+            <button type="button" data-hero-select="0" aria-pressed="false">01</button>
+            <button type="button" data-hero-select="1" aria-pressed="false">02</button>
+            <button type="button" data-hero-select="2" aria-pressed="true">03</button>
           </div>
         </div>
       </div>
@@ -122,7 +126,6 @@
 <section id="programas" class="section">
       <div class="container">
         <header class="section-head">
-          <p class="kicker" data-i18n="text086">NOSSOS PROGRAMAS</p>
           <h2 data-i18n="text087">Oportunidades que começam no tatame e vão além.</h2>
         </header>
         <p class="programs-intro" data-i18n="programs.availability">Conheça nossas frentes de atuação. Consulte a equipe sobre a oferta atual de cada atividade e as vagas disponíveis.</p>
@@ -149,7 +152,6 @@
 <section id="aulas" class="section section-mist">
       <div class="container">
         <header class="section-head">
-          <p class="kicker" data-i18n="text105">AULAS GRATUITAS</p>
           <h2 data-i18n="text106">No tatame, toda criança descobre que pode ir mais longe.</h2>
         </header>
         <div class="cards">
@@ -182,7 +184,6 @@
       <div class="container">
         <header class="section-head section-head-row">
           <div>
-            <p class="kicker" data-i18n="text118">GALERIA</p>
             <h2 data-i18n="text119">Nosso dia a dia.</h2>
           </div>
           <a class="gallery-instagram" href="https://www.instagram.com/institutokhuririm/" target="_blank" rel="noopener">
@@ -224,7 +225,6 @@
           <img src="assets/img/photos/sobre.webp" srcset="assets/img/photos/sobre-600.webp 600w, assets/img/photos/sobre.webp 1200w" sizes="(max-width: 860px) 100vw, 480px" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.4">
         </div>
         <div class="split-text">
-          <p class="kicker" data-i18n="text023">NOSSA HISTÓRIA</p>
           <h2 data-i18n="text024">Um sonho que nasceu no coração de Deus.</h2>
           <p data-i18n="text026">Em 1998, nasceu o desejo de Anderson Khuririm de usar o esporte para abrir caminhos para crianças e adolescentes.</p>
           <p data-i18n="text027">Movido pela fé e pelo compromisso com o próximo, esse propósito deu origem ao Instituto Khuririm, com atenção especial a famílias em situação de vulnerabilidade.</p>
@@ -240,7 +240,6 @@
 <section id="missao" class="section section-mist">
       <div class="container">
         <header class="section-head">
-          <p class="kicker" data-i18n="text034">MISSÃO E VISÃO</p>
           <h2 data-i18n="text035">Para que existimos e aonde queremos chegar.</h2>
           </header>
         <div class="mv">
@@ -259,7 +258,6 @@
 <section id="valores" class="section section-dark">
       <div class="container">
         <header class="section-head">
-          <p class="kicker kicker-yellow" data-i18n="text042">MAIS QUE TÉCNICA</p>
           <h2 data-i18n="text043">Valores que a gente leva do tatame para a vida.</h2>
         </header>
         <div class="values">
@@ -280,7 +278,6 @@
           <img src="assets/img/photos/fundador.webp" srcset="assets/img/photos/fundador-600.webp 600w, assets/img/photos/fundador.webp 1200w" sizes="(max-width: 860px) 100vw, 480px" alt="Anderson Khuririm, fundador do Instituto Khuririm, sorrindo" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.5">
         </div>
         <div class="split-text">
-          <p class="kicker" data-i18n="text058">APRESENTAÇÃO DO FUNDADOR</p>
           <h2 data-i18n="text059">Uma vida dedicada a formar pessoas.</h2>
           <p><strong>Anderson Khuririm</strong><br><span data-i18n="text061">Fundador do Instituto Khuririm</span><br><span data-i18n="text062">Professor faixa-preta de Jiu-Jítsu</span></p>
           <p data-i18n="text063">Com uma trajetória dedicada ao esporte e à formação humana, Anderson Khuririm acredita que o verdadeiro valor de um projeto social está nas vidas que ele consegue alcançar.</p>
@@ -295,7 +292,6 @@
           <img src="assets/img/photos/padrinho.webp" srcset="assets/img/photos/padrinho-600.webp 600w, assets/img/photos/padrinho.webp 1200w" sizes="(max-width: 860px) 100vw, 480px" alt="Anderson Khuririm e Cristiano Caporezzo, de kimono, lado a lado na academia" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.6">
         </div>
         <div class="split-text">
-          <p class="kicker" data-i18n="text067">HOMENAGEM</p>
           <h2 data-i18n="text068">Quando alguém acredita em um sonho.</h2>
           <p class="subtitle" data-i18n="text069">Uma amizade que nasceu no tatame. Uma parceria construída sobre um propósito.</p>
           <p><strong>Cristiano Caporezzo</strong><br><span data-i18n="text071">Padrinho e apoiador do Instituto Khuririm</span></p>
@@ -308,7 +304,6 @@
 <section id="transparencia" class="section">
       <div class="container">
         <header class="section-head">
-          <p class="kicker" data-i18n="text121">TRANSPARÊNCIA E RESPONSABILIDADE</p>
           <h2 data-i18n="text122">Compromisso, responsabilidade e confiança.</h2>
           <p data-i18n="text123">Conheça as informações disponíveis e converse com nossa equipe sobre a organização e a destinação das contribuições.</p>
           <p data-i18n="text124">Os dados de recebimento abaixo são os mesmos apresentados na área de doação. Para documentos institucionais e esclarecimentos, fale com o Instituto.</p>
@@ -328,7 +323,6 @@
 <section id="apoie" class="section section-mist">
       <div class="container">
         <header class="section-head">
-          <p class="kicker" data-i18n="text141">SEJA UM APOIADOR</p>
           <h2 data-i18n="text142">Você também pode transformar uma história.</h2>
           <p data-i18n="text145">Escolha como participar: uma contribuição financeira, seu tempo como voluntário ou uma parceria para atender às necessidades dos projetos.</p>
         </header>
@@ -364,28 +358,29 @@
           </article>
         </div>
 
-        <!-- APOIADORES: adicione somente marcas autorizadas; remova sponsors-single ao incluir mais de um. -->
-        <div class="sponsors">
-          <p class="kicker kicker-muted" data-i18n="text166">APOIADORES</p>
-          <div class="sponsors-carousel sponsors-single" role="region" aria-label="Apoiadores" data-i18n-aria-label="sponsors.carousel">
+        <section class="sponsors" id="apoiadores" aria-labelledby="supporters-title">
+          <header class="section-head sponsors-heading">
+            <h2 id="supporters-title" data-i18n="text166">Apoiadores</h2>
+          </header>
+          <div class="sponsors-carousel sponsors-static" role="region" aria-label="Apoiadores" data-i18n-aria-label="sponsors.carousel">
             <button class="sponsors-arrow" type="button" data-sponsors-direction="-1" aria-label="Apoiadores anteriores" data-i18n-aria-label="sponsors.previous">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
             </button>
             <div class="sponsors-grid" id="sponsors-track">
-              <figure class="sponsor-card sponsor-slide"><img src="assets/img/photos/apoiador-1.webp" alt="Cristiano Caporezzo" width="350" height="350" loading="lazy"><figcaption data-i18n="text167">Cristiano Caporezzo · padrinho e apoiador</figcaption></figure>
+              <figure class="sponsor-card sponsor-slide"><img src="assets/img/sponsors/cristiano-caporezzo.webp" alt="Cristiano Caporezzo" width="350" height="350" loading="lazy"><figcaption><span data-i18n="text167">Cristiano Caporezzo · padrinho e apoiador</span><a class="sponsor-profile" href="https://www.instagram.com/caporezzodm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram · Cristiano Caporezzo" title="Instagram · @caporezzodm"></a></figcaption></figure>
+              <figure class="sponsor-card sponsor-slide"><img src="assets/img/sponsors/lapidare.jpg" alt="Lapidare" width="150" height="150" loading="lazy"><figcaption>Lapidare<a class="sponsor-profile" href="https://www.instagram.com/lapidareproject/" target="_blank" rel="noopener noreferrer" aria-label="Instagram · Lapidare" title="Instagram · @lapidareproject"></a></figcaption></figure>
             </div>
             <button class="sponsors-arrow" type="button" data-sponsors-direction="1" aria-label="Próximos apoiadores" data-i18n-aria-label="sponsors.next">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
             </button>
           </div>
-        </div>
+        </section>
       </div>
     </section>
 
 <section id="contato" class="section">
       <div class="container contact">
         <div class="contact-text">
-          <p class="kicker" data-i18n="text171">CONTATO</p>
           <h2 data-i18n="text172">Vamos conversar?</h2>
           <p class="muted" data-i18n="text173">Inscrições, doações, voluntariado ou parcerias: fale direto com o instituto.</p>
           <a class="btn btn-yellow" href="https://wa.me/5534992000208?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Instituto%20Khuririm." target="_blank" rel="noopener" data-i18n="text174">Falar no WhatsApp</a>
@@ -444,6 +439,7 @@
   <script src="assets/js/components/carousels.js" defer></script>
   <script src="assets/js/components/lightbox.js" defer></script>
   <script src="assets/js/components/animations.js" defer></script>
+  <script src="assets/js/components/hero-photos.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

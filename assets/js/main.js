@@ -5,6 +5,7 @@
   components.initClipboard();
   components.initCarousels();
   components.initLightbox();
+  components.initHeroPhotos();
 
   // Ano no rodapé
   var ano = document.getElementById('ano');
