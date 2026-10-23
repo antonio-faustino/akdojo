@@ -2,7 +2,9 @@
 
 ## Execução e publicação
 
-Sirva a raiz via HTTP, conforme o README. Não há build nem gerenciador de pacotes.
+Sirva a raiz via HTTP; por exemplo, `python -m http.server 8000 --bind 127.0.0.1`.
+Abra `http://127.0.0.1:8000/`. Não há build nem gerenciador de pacotes.
+O mapa de arquivos e a rotina de validação estão em [project-structure.md](project-structure.md).
 A publicação deve disponibilizar `index.html` e `assets/` mantendo a estrutura
 relativa. A documentação não é necessária para servir o site.
 Preserve as configurações existentes da hospedagem e do Git.
@@ -25,8 +27,9 @@ O HTML carrega os arquivos nesta ordem:
 2. `assets/css/layout.css`: contêiner, cabeçalho, menu, idiomas e rodapé.
 3. `assets/css/components.css`: botões, cards, citações, carrosséis, modal, PIX,
    botões sociais e animações.
-4. `assets/css/sections.css`: apresentação, história, programas, transparência,
+4. `assets/css/sections.css`: história, programas, transparência,
    apoio e contato.
+5. `assets/css/hero.css`: apresentação inicial, fundo animado, fotos e pilares.
 
 As media queries ficam na responsabilidade correspondente. A ordem das regras
 dentro de cada arquivo importa para a cascata. Verifique os três idiomas e
@@ -43,7 +46,8 @@ Os scripts são clássicos e usam `defer`, nesta ordem no HTML:
 4. `components/carousels.js` registra `initCarousels` para galeria e apoiadores.
 5. `components/lightbox.js` registra `initLightbox` para ampliar fotos.
 6. `components/animations.js` registra `initAnimations`.
-7. `main.js` chama essas funções de `window.SiteComponents` uma única vez e
+7. `components/hero-photos.js` registra `initHeroPhotos` para a pilha de fotos.
+8. `main.js` chama essas funções de `window.SiteComponents` uma única vez e
    atualiza o ano do rodapé.
 
 Não adicione `async` nem repita as inicializações: isso pode alterar a ordem
@@ -64,12 +68,14 @@ recarregar e com armazenamento bloqueado.
 
 ## Imagens e fontes
 
-Todas as imagens em `assets/img/brand`, `flags`, `gallery` e `photos` e as fontes
+Todas as imagens em `assets/img/brand`, `flags`, `gallery`, `photos`, `sponsors`
+e `backgrounds` e as fontes
 em `assets/fonts/` são mantidas. Não remova variantes apenas porque não aparecem
 em um `src`. Ao substituir imagens, revise `src`, `srcset`, `sizes`, dimensões,
 texto alternativo e traduções. Preserve carregamento lazy das imagens secundárias
-e prioridade da imagem principal. Seu preload também contém `imagesrcset` e
-`imagesizes`, que devem acompanhar alterações.
+e prioridade da imagem principal. A foto principal atual é `alunas-jiu-jitsu.jpg`,
+com preload no HTML e marcação `data-hero-primary`. Ao introduzir variantes,
+mantenha `imagesrcset` e `imagesizes` do preload alinhados ao `srcset` da imagem.
 
 ## SEO e integrações
 
@@ -97,8 +103,10 @@ confira esses navegadores antes de afirmar compatibilidade validada.
 
 O menu possui fallback de altura com `vh`, e o listener de mudança de largura
 aceita a API antiga de MediaQueryList. Em navegadores sem `dialog.showModal`,
-a foto é aberta diretamente. A classe `sponsors-single` deve ser removida se
-novos apoiadores forem adicionados ao carrossel.
+a foto é aberta diretamente. O bloco `apoiadores` pertence à seção `apoie`.
+A classe `sponsors-static` mantém os dois cartões lado a lado. Ao incluir mais
+apoiadores, revise esse modo e o carrossel em `components/carousels.js`.
+O carrossel atual possui controles manuais; rolagem automática ainda não foi implementada.
 
 Após mudanças, confira o console e a rede do navegador, o carregamento das
 imagens e fontes e as telas de 1440 e 390 pixels. Verifique os três idiomas,
@@ -117,3 +125,31 @@ de rolagem horizontal, erros JavaScript, âncoras inválidas e traduções de te
 ausentes, além do carregamento das imagens sem lazy loading, posição dos idiomas,
 menu móvel, fechamento com Escape e visibilidade do botão de voltar ao topo.
 A revisão não verificou hospedagem, Clipboard API em HTTPS ou outros navegadores.
+
+## Atualizações de 23/10/2026
+
+Os rótulos pequenos das seções e os dois botões da hero foram removidos.
+O título inicial ocupa duas linhas responsivas, e os quatro pilares permanecem
+lado a lado também no celular. Os estilos da hero ficam isolados em `hero.css`.
+
+A hero reúne três fotos; a foto das duas alunas aparece primeiro. A seleção
+funciona por mouse, toque, gesto horizontal e teclado. O fundo usa uma única
+fotografia animada por transformação CSS, com degradê e textura SVG sobrepostos.
+`prefers-reduced-motion` desativa a animação e as transições das fotos.
+
+Caporezzo e Lapidare possuem cartões clicáveis com os respectivos links do
+Instagram, indicação discreta no hover e foco visível. Suas imagens ficam em
+`assets/img/sponsors/`. A logo da Lapidare foi fornecida em 150 × 150 pixels;
+uma versão maior poderá melhorar a nitidez em telas de alta densidade.
+
+A cópia de publicação do Sites fica isolada em `.sites-preview/`, ignorada pelo
+Git. Um push para o GitHub não atualiza automaticamente o Sites. A prévia já
+publicada é pública; não envie repositório, arquivos internos ou credenciais
+junto dos arquivos destinados ao navegador.
+
+Após a reorganização, a validação local verificou os oito scripts JavaScript,
+os recursos do HTML/CSS, 24 IDs únicos, âncoras e JSON-LD. O Edge headless
+verificou o fundo e a hero em 320, 390, 768, 1024, 1440 e 1920 px, incluindo
+movimento reduzido, seleção por mouse e gesto de toque. Os apoiadores passaram
+em 320, 390, 768 e 1440 px nos três idiomas. Não houve erros JavaScript nem
+rolagem horizontal nesses cenários.
