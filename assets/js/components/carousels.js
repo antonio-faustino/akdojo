@@ -21,7 +21,7 @@
           if (!slide) return;
           var gap = parseFloat(window.getComputedStyle(sponsorsTrack).columnGap) || 0;
           var direction = Number(button.getAttribute('data-sponsors-direction'));
-          sponsorsTrack.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: 'smooth' });
+          sponsorsTrack.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
         });
       });
       sponsorsTrack.addEventListener('scroll', updateSponsorsButtons, { passive: true });
@@ -48,7 +48,7 @@
           if (!slide) return;
           var gap = parseFloat(window.getComputedStyle(galleryTrack).columnGap) || 0;
           var direction = Number(button.getAttribute('data-gallery-direction'));
-          galleryTrack.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: 'smooth' });
+          galleryTrack.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
         });
       });
       galleryTrack.addEventListener('scroll', updateGalleryButtons, { passive: true });

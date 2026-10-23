@@ -6,6 +6,7 @@
     // Menu mobile
     var toggle = document.querySelector('.menu-toggle');
     var nav = document.getElementById('menu');
+    var backToTop = document.querySelector('.back-to-top');
     if (toggle && nav) {
       var setOpen = function (open) {
         toggle.setAttribute('aria-expanded', String(open));
@@ -25,9 +26,15 @@
       var brand = header && header.querySelector('.brand');
       if (brand) brand.addEventListener('click', function () { setOpen(false); });
       var desktopQuery = window.matchMedia('(min-width: 1001px)');
+      var languages = header && header.querySelector('.language-switch');
       var handleDesktopChange = function (event) {
+        if (languages) {
+          if (event.matches) header.querySelector('.header-inner').insertBefore(languages, toggle);
+          else nav.appendChild(languages);
+        }
         if (event.matches) setOpen(false);
       };
+      handleDesktopChange(desktopQuery);
       if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
       else desktopQuery.addListener(handleDesktopChange);
     }
@@ -42,6 +49,7 @@
     var updateHeader = function () {
       framePending = false;
       header.classList.toggle('is-scrolled', window.scrollY > 32);
+      if (backToTop) backToTop.hidden = window.scrollY < 400;
       var anchorLine = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 2;
       var current = sections[0];
       sections.forEach(function (item) {

@@ -151,8 +151,9 @@ html { --header-height: 112px; --header-compact-height: 80px; scroll-padding-top
   .site-header .brand-symbol { width: 58px; }
   .site-header .brand-big { font-size: 25px; }
   .site-header .brand-small { font-size: 11px; }
-  .site-header .language-switch { order: 0; margin-left: auto; padding-left: 0; border-left: 0; }
-  .site-header .menu-toggle { display: flex; }
+  .site-header .header-inner > .language-switch { display: none; }
+  .site-header .nav .language-switch { order: 0; margin: 16px 0 0; padding: 8px 0 0; border-left: 0; justify-content: flex-start; }
+  .site-header .menu-toggle { display: flex; margin-left: auto; }
   .site-header .nav {
     position: absolute;
     top: 100%;
