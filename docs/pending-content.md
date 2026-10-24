@@ -14,6 +14,9 @@ Não inserir dados pessoais, documentos ou números estimados sem confirmação.
   as atividades.
 - Oferta atual dos cinco programas e disponibilidade de profissionais.
 - Estatuto, relatórios e prestações de contas que poderão ser disponibilizados.
+- Endereço de e-mail responsável, serviço de envio, proteção contra spam,
+  política de retenção e texto final de privacidade para ativar o formulário
+  da página Apoie. Até lá, ele valida apenas uma simulação no navegador.
 - Uso autorizado de nomes, fotos, depoimentos e marcas de apoiadores.
 - Domínio definitivo `.org.br`, titularidade e hospedagem de produção.
 
