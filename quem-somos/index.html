@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/sections.css">
   <link rel="stylesheet" href="assets/css/hero.css">
-  <link rel="stylesheet" href="assets/css/pages.css?v=quem-somos-20261024c">
+  <link rel="stylesheet" href="assets/css/pages.css?v=quem-somos-20261024d">
 </head>
 <body>
   <a class="skip-link" href="./quem-somos/#conteudo" data-i18n="text002">Pular para o conteúdo</a>
@@ -70,8 +70,31 @@
   <main id="conteudo" class="preview-page preview-page-quem-somos">
     <section id="sobre" class="section">
       <div class="container split">
-        <div class="split-media">
-          <img src="assets/img/photos/sobre.webp" srcset="assets/img/photos/sobre-600.webp 600w, assets/img/photos/sobre.webp 1200w" sizes="(max-width: 860px) 100vw, 480px" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="480" height="600" loading="lazy" data-i18n-alt="accessibility.4">
+        <div class="split-media about-gallery">
+          <fieldset class="about-gallery-fieldset">
+            <legend class="about-gallery-visually-hidden" data-i18n="about.galleryLegend">Imagens da nossa história</legend>
+            <input type="radio" name="about-photo" id="about-photo-1" checked>
+            <input type="radio" name="about-photo" id="about-photo-2">
+            <input type="radio" name="about-photo" id="about-photo-3">
+            <div class="about-photo-stage">
+              <figure class="about-photo about-photo-1">
+                <img src="assets/img/photos/sobre.webp" srcset="assets/img/photos/sobre-600.webp 600w, assets/img/photos/sobre.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), 365px" alt="Professor faixa-preta com duas alunas de kimono diante do logotipo da academia" width="1200" height="1198" fetchpriority="high" data-i18n-alt="accessibility.4">
+              </figure>
+              <figure class="about-photo about-photo-2">
+                <img src="assets/img/photos/sobre-ilustracao-afeto.webp" srcset="assets/img/photos/sobre-ilustracao-afeto-600.webp 600w, assets/img/photos/sobre-ilustracao-afeto.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), 365px" alt="Ilustração digital de um adulto com duas crianças em um momento de afeto" width="1200" height="1200" loading="lazy" data-i18n-alt="about.illustrationAffectionAlt">
+                <figcaption data-i18n="about.illustrationLabel">Imagem ilustrativa</figcaption>
+              </figure>
+              <figure class="about-photo about-photo-3">
+                <img src="assets/img/photos/sobre-ilustracao-respeito.webp" srcset="assets/img/photos/sobre-ilustracao-respeito-600.webp 600w, assets/img/photos/sobre-ilustracao-respeito.webp 1122w" sizes="(max-width: 700px) calc(100vw - 48px), 365px" alt="Ilustração digital em preto e branco de um adulto cumprimentando uma criança no tatame" width="1122" height="1402" loading="lazy" data-i18n-alt="about.illustrationRespectAlt">
+                <figcaption data-i18n="about.illustrationLabel">Imagem ilustrativa</figcaption>
+              </figure>
+            </div>
+            <div class="about-photo-choices">
+              <label for="about-photo-1"><img src="assets/img/photos/sobre-600.webp" alt="" width="72" height="72"><span class="about-gallery-visually-hidden" data-i18n="about.galleryReal">Foto do Instituto</span></label>
+              <label for="about-photo-2"><img src="assets/img/photos/sobre-ilustracao-afeto-600.webp" alt="" width="72" height="72" loading="lazy"><span class="about-gallery-visually-hidden" data-i18n="about.galleryAffection">Ilustração: afeto</span></label>
+              <label for="about-photo-3"><img src="assets/img/photos/sobre-ilustracao-respeito-600.webp" alt="" width="72" height="72" loading="lazy"><span class="about-gallery-visually-hidden" data-i18n="about.galleryRespect">Ilustração: respeito</span></label>
+            </div>
+          </fieldset>
         </div>
         <div class="split-text">
           <h1 data-i18n="text024">Um sonho que nasceu no coração de Deus.</h1>
@@ -208,7 +231,7 @@
     </div>
   </footer>
   <a class="back-to-top" href="./quem-somos/#conteudo" aria-label="Voltar ao topo" data-i18n-aria-label="navigation.backToTop" hidden><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 6-6 6 6M12 6v14"/></svg></a>
-  <script src="assets/js/i18n.js?v=quem-somos-20261024" defer></script>
+  <script src="assets/js/i18n.js?v=quem-somos-20261024b" defer></script>
   <script src="assets/js/components/navigation.js" defer></script>
   <script src="assets/js/components/clipboard.js" defer></script>
   <script src="assets/js/components/carousels.js" defer></script>

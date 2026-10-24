@@ -18,6 +18,41 @@ html:not([data-site-page="inicio"]) .site-header { background: var(--azul-noite)
 .preview-page:not(.preview-page-inicio) .split-text h1 { margin: 0; }
 .preview-page:not(.preview-page-inicio) .section-head h1 + p { margin-top: 16px; }
 .preview-page-quem-somos .about-lead { color: var(--azul); font-size: clamp(18px, 2vw, 21px); font-weight: 700; line-height: 1.4; }
+.preview-page-quem-somos #sobre .split { display: grid; grid-template-columns: minmax(0, 365px) minmax(0, 1fr); align-items: start; gap: clamp(28px, 4vw, 56px); }
+.about-gallery-fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.about-gallery-visually-hidden,
+.about-gallery-fieldset > input {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.about-photo-stage { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--raio-lg); background: var(--azul); box-shadow: 0 20px 42px -24px rgba(2, 39, 75, .46); }
+.about-photo-stage .about-photo {
+  position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; transform: scale(1.025);
+  transition: opacity 280ms cubic-bezier(.23, 1, .32, 1), transform 280ms cubic-bezier(.23, 1, .32, 1), visibility 280ms;
+}
+.about-photo-stage .about-photo img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border-radius: 0; }
+.about-photo-stage .about-photo-2 img { object-position: 51% 43%; }
+.about-photo-stage .about-photo-3 img { object-position: 50% 38%; }
+.about-photo-stage figcaption {
+  position: absolute; bottom: 14px; left: 14px; padding: 5px 10px; border-radius: 999px;
+  background: rgba(1, 26, 51, .86); color: var(--branco); font-size: 12px; font-weight: 700;
+}
+#about-photo-1:checked ~ .about-photo-stage .about-photo-1,
+#about-photo-2:checked ~ .about-photo-stage .about-photo-2,
+#about-photo-3:checked ~ .about-photo-stage .about-photo-3 { opacity: 1; visibility: visible; transform: scale(1); }
+.about-photo-choices { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.about-photo-choices label {
+  display: block; width: 68px; height: 68px; padding: 3px; border: 2px solid transparent; border-radius: 13px;
+  cursor: pointer; transition: border-color 160ms ease, transform 160ms cubic-bezier(.23, 1, .32, 1);
+}
+.about-photo-choices img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+.about-photo-choices label:active { transform: scale(.97); }
+#about-photo-1:checked ~ .about-photo-choices label[for="about-photo-1"],
+#about-photo-2:checked ~ .about-photo-choices label[for="about-photo-2"],
+#about-photo-3:checked ~ .about-photo-choices label[for="about-photo-3"] { border-color: var(--amarelo); }
+#about-photo-1:focus-visible ~ .about-photo-choices label[for="about-photo-1"],
+#about-photo-2:focus-visible ~ .about-photo-choices label[for="about-photo-2"],
+#about-photo-3:focus-visible ~ .about-photo-choices label[for="about-photo-3"] { outline: 3px solid var(--amarelo); outline-offset: 3px; }
 .preview-page-quem-somos #missao .section-head { max-width: 780px; }
 .preview-page-quem-somos .about-photo-interlude { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
 .preview-page-quem-somos .about-photo-interlude figure { margin: 0; }
@@ -105,11 +140,16 @@ html:not([data-site-page="inicio"]) .site-header { background: var(--azul-noite)
 .preview-submit:active, .preview-dialog-close:active { transform: scale(.97); }
 
 @media (max-width: 1000px) {
+  .preview-page-quem-somos #sobre .split { grid-template-columns: minmax(260px, 36%) minmax(0, 1fr); }
   .preview-page:not(.preview-page-inicio) { padding-top: 72px; }
   .preview-highlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
-  .preview-page-quem-somos #sobre .split-media img { height: auto; aspect-ratio: 1; }
+  .preview-page-quem-somos #sobre .split { grid-template-columns: 1fr; }
+  .preview-page-quem-somos #sobre .about-gallery { width: 100%; max-width: 440px; margin-inline: auto; }
+  .preview-page-quem-somos #sobre .about-photo-stage { aspect-ratio: 1; }
+  .preview-page-quem-somos #sobre .about-photo-stage img { height: 100%; aspect-ratio: auto; }
+  .preview-page-quem-somos #sobre .about-photo-choices img { height: 100%; aspect-ratio: 1; }
   .preview-page-quem-somos .about-photo-interlude { grid-template-columns: 1fr; }
   .preview-page-quem-somos .about-photo-copy { gap: 16px; }
   .preview-page-quem-somos .about-founder-message .btn { width: 100%; }
@@ -137,6 +177,8 @@ html:not([data-site-page="inicio"]) .site-header { background: var(--azul-noite)
   .preview-form-direct { margin-bottom: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .about-photo-stage .about-photo { transform: none; transition: opacity 180ms ease, visibility 180ms; }
+  .about-photo-choices label { transition: none; }
   .preview-interest-choices label { transition: none; }
   .preview-submit, .preview-dialog-close { transform: none; }
   .preview-interest-dialog::backdrop { backdrop-filter: none; }
