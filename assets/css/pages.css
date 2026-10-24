@@ -17,6 +17,19 @@ html:not([data-site-page="inicio"]) .site-header { background: var(--azul-noite)
 }
 .preview-page:not(.preview-page-inicio) .split-text h1 { margin: 0; }
 .preview-page:not(.preview-page-inicio) .section-head h1 + p { margin-top: 16px; }
+.preview-page-quem-somos .about-lead { color: var(--azul); font-size: clamp(18px, 2vw, 21px); font-weight: 700; line-height: 1.4; }
+.preview-page-quem-somos #missao .section-head { max-width: 780px; }
+.preview-page-quem-somos .about-photo-interlude { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
+.preview-page-quem-somos .about-photo-interlude figure { margin: 0; }
+.preview-page-quem-somos .about-photo-interlude img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--raio-lg); }
+.preview-page-quem-somos .about-photo-interlude figcaption { margin-top: 12px; color: var(--ardosia); font-size: 14px; }
+.preview-page-quem-somos .about-photo-copy { display: grid; gap: 22px; }
+.preview-page-quem-somos .about-photo-copy h2 { font-size: clamp(30px, 3.2vw, 42px); }
+.preview-page-quem-somos .about-photo-copy p { font-size: clamp(18px, 1.7vw, 21px); }
+.preview-page-quem-somos .about-founder-message .founder-message { margin: 0 auto; }
+.preview-page-quem-somos .about-founder-message h2 { margin-bottom: 24px; font-size: clamp(28px, 3vw, 38px); }
+.preview-page-quem-somos .about-founder-message .quote { margin: 0; }
+.preview-page-quem-somos .about-founder-message .btn { margin-top: 28px; }
 .preview-page-transparencia { min-height: 70svh; }
 .preview-page-transparencia > .section { padding-bottom: 112px; }
 
@@ -96,6 +109,10 @@ html:not([data-site-page="inicio"]) .site-header { background: var(--azul-noite)
   .preview-highlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
+  .preview-page-quem-somos #sobre .split-media img { height: auto; aspect-ratio: 1; }
+  .preview-page-quem-somos .about-photo-interlude { grid-template-columns: 1fr; }
+  .preview-page-quem-somos .about-photo-copy { gap: 16px; }
+  .preview-page-quem-somos .about-founder-message .btn { width: 100%; }
   .preview-highlight-grid { grid-template-columns: 1fr; gap: 12px; }
   .preview-highlight-grid article { padding: 22px; }
   .preview-highlight-grid h3 { margin-top: 8px; }
