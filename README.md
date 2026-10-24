@@ -21,7 +21,7 @@ entre páginas usa URLs HTTP e cada pasta é servida pelo respectivo `index.html
 
 ## Endereços
 
-- **Prévia pública para avaliação:** <https://instituto-khuririm-previa.antoniiotales.chatgpt.site/>. Em 24/10/2026, a versão 13 com as cinco páginas foi publicada nesse projeto Sites.
+- **Prévia pública para avaliação:** <https://instituto-khuririm-previa.antoniiotales.chatgpt.site/>. Em 24/10/2026, a versão 14 com as cinco páginas e o menu reorganizado foi publicada nesse projeto Sites.
 - **Prévia local do código nesta pasta:** <http://127.0.0.1:8767/>. Só funciona nesta máquina e enquanto a tarefa estiver em execução.
 - **Site original de referência:** `institutokhuririm.com.br`. Este projeto não o modifica nem publica nele.
 
