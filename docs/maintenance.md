@@ -2,17 +2,21 @@
 
 ## Execução e publicação
 
-Sirva a raiz via HTTP; por exemplo, `python -m http.server 8000 --bind 127.0.0.1`.
-Abra `http://127.0.0.1:8000/`. Não há build nem gerenciador de pacotes.
+No VS Code, execute a tarefa **Instituto Khuririm: prévia local** e abra
+`http://127.0.0.1:8767/`. O mesmo servidor pode ser iniciado por
+`scripts/serve-site.ps1`. Não abra diretórios por `file://`.
+Não há build nem gerenciador de pacotes.
 O mapa de arquivos e a rotina de validação estão em [project-structure.md](project-structure.md).
-A publicação deve disponibilizar `index.html` e `assets/` mantendo a estrutura
+A publicação deve disponibilizar `index.html`, as quatro pastas de páginas e `assets/` mantendo a estrutura
 relativa. A documentação não é necessária para servir o site.
 Preserve as configurações existentes da hospedagem e do Git.
 
 ## Conteúdo e acessibilidade
 
-O `index.html` contém a página completa. Preserve IDs e âncoras, incluindo
-`inicio`, `sobre`, `programas`, `transparencia`, `apoie`, `contato` e `aulas`.
+O conteúdo agora está distribuído entre `index.html`, `programas/index.html`,
+`quem-somos/index.html`, `transparencia/index.html` e `apoie/index.html`.
+O contato permanece no fim da página inicial; as páginas internas usam links
+para `/#contato` por meio da base relativa. Preserve IDs e links entre páginas.
 Classes e atributos `data-*` também são utilizados pelos scripts do site.
 Mantenha títulos, link para pular ao conteúdo, textos alternativos, rótulos ARIA,
 foco visível e operação por teclado. O menu fecha com Escape e a ampliação de
@@ -30,6 +34,7 @@ O HTML carrega os arquivos nesta ordem:
 4. `assets/css/sections.css`: história, programas, transparência,
    apoio e contato.
 5. `assets/css/hero.css`: apresentação inicial, fundo animado, fotos e pilares.
+6. `assets/css/pages.css`: páginas internas, resumos e formulário demonstrativo.
 
 As media queries ficam na responsabilidade correspondente. A ordem das regras
 dentro de cada arquivo importa para a cascata. Verifique os três idiomas e
@@ -49,6 +54,7 @@ Os scripts são clássicos e usam `defer`, nesta ordem no HTML:
 7. `components/hero-photos.js` registra `initHeroPhotos` para a pilha de fotos.
 8. `main.js` chama essas funções de `window.SiteComponents` uma única vez e
    atualiza o ano do rodapé.
+9. `pages.js` indica a página atual e controla a demonstração do formulário.
 
 Não adicione `async` nem repita as inicializações: isso pode alterar a ordem
 de execução ou duplicar eventos. Cada componente mantém suas variáveis locais
@@ -60,7 +66,8 @@ indisponível, o botão mantém a orientação de cópia manual.
 
 Os dicionários PT/EN/ES e o mecanismo permanecem em `assets/js/i18n.js`.
 Adicione a mesma chave nos três idiomas e associe-a ao HTML por `data-i18n`.
-Para atributos, use `data-i18n-alt`, `data-i18n-aria-label` e `data-i18n-content`.
+Para atributos, use `data-i18n-alt`, `data-i18n-aria-label`, `data-i18n-content`
+e `data-i18n-placeholder`.
 Preserve as chaves e o uso de `textContent`, sem injetar HTML nas traduções.
 Preserve `window.SiteI18n`, o evento `languagechange`, a chave de armazenamento
 `khuririm-language`, `html.lang` e `aria-pressed`. Verifique a preferência após
@@ -79,8 +86,8 @@ mantenha `imagesrcset` e `imagesizes` do preload alinhados ao `srcset` da imagem
 
 ## SEO e integrações
 
-O HTML contém título, descrição, URL canônica, Open Graph, cartão do Twitter
-e JSON-LD. Ao trocar domínio ou marca, revise URLs absolutas de `og:image` e
+Cada página contém título, descrição, URL canônica, Open Graph e cartão do Twitter;
+a página inicial também mantém JSON-LD. Ao trocar domínio ou marca, revise URLs absolutas de `og:image` e
 logo no JSON-LD, favicon, apple-touch-icon e preloads. A reorganização mantém
 esses valores.
 WhatsApp, Instagram e Google Maps estão no HTML. Ao trocar telefone ou perfil,
@@ -153,3 +160,20 @@ verificou o fundo e a hero em 320, 390, 768, 1024, 1440 e 1920 px, incluindo
 movimento reduzido, seleção por mouse e gesto de toque. Os apoiadores passaram
 em 320, 390, 768 e 1440 px nos três idiomas. Não houve erros JavaScript nem
 rolagem horizontal nesses cenários.
+
+## Implementação da prévia aprovada em 24/10/2026
+
+A navegação passou a usar páginas separadas para programas, quem somos,
+transparência e apoio. O contato permanece no fim da página inicial. A hero
+voltou a apresentar um único botão, “Apoiar o Instituto”, que abre a página
+de apoio, conforme a prévia aprovada.
+
+O formulário da página Apoie reproduz a prévia e valida os dados no navegador.
+Seu envio continua demonstrativo: nenhuma mensagem é transmitida ou armazenada.
+Antes de habilitar inscrições reais, configure o serviço de envio e os itens
+pendentes descritos em `pending-content.md`.
+
+O verificador local agora percorre as cinco páginas. A conferência visual em
+1440, 1024, 768, 390 e 320 px comparou a implementação com a prévia aprovada.
+Também foram verificados navegação, seleção de fotos, galeria, cópia da chave
+PIX, idiomas e os estados do formulário. Esta etapa não incluiu publicação.
